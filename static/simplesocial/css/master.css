@@ -1,0 +1,10 @@
+body{
+	margin:0;
+	overflow: hidden;
+	
+	background-color: black;
+	background-size: cover;
+	background-position: center;
+	color: white;
+
+}

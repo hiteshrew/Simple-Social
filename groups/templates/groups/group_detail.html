@@ -9,10 +9,10 @@
 	
 	{% if user in group.members.all %}
 	    
-		<a href="{url 'groups:leave' slug=group.slug}" class="btn btn-lg btn-fill btn-warning"><span class="glyphicon glyphicon-remove-circle"></span>Leave</a>
+		<a href="{% url 'groups:leave' slug=group.slug %}" class="btn btn-lg btn-fill btn-warning"><span class="glyphicon glyphicon-remove-circle"></span>Leave</a>
 
 	{% else %}
-		<a href="{url 'groups:join' slug=group.slug}" class="btn btn-lg btn-fill btn-warning"><span class="glyphicon glyphicon-ok-circle"></span>Join</a>
+		<a href="{% url 'groups:join' slug=group.slug %}" class="btn btn-lg btn-fill btn-warning"><span class="glyphicon glyphicon-ok-circle"></span>Join</a>
 		
 
 	{% endif %}
@@ -25,11 +25,12 @@
 
 {% block group_content %}
     <div class="col-md-8">
-    	{% if groups.posts.count ==0 %}
+    	{% if groups.posts.count == 0 %}
     	    
     	    <h2>No posts in this group yet!</h2>
 
     	    {% else %}
+            
     	        {% for post in group.posts.all %}
     	        	{% include "posts/_post.html" %}    	        	
     	        {% endfor %}
